@@ -5,6 +5,7 @@ services:
     image: mysql:5.7
     env_file:
       - ./env/mysql.env
+    restart: always
   node:
     build:
       context: .
