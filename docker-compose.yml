@@ -6,6 +6,10 @@ services:
     env_file:
       - ./env/mysql.env
     restart: always
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+    volumes:
+      - data:/var/lib/mysql
   node:
     build:
       context: .
@@ -21,4 +25,7 @@ services:
       - mysql
     stdin_open: true
     tty: true
+
+volumes:
+  data:
    
